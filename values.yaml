@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: tomascontreply02/go-server-test
+  tag: "v1"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+app:
+  name: go-yaml-app
+
+paths:
+  getPath: /api/v1/config
+  postPath: /api/v1/calculate
+
+config:
+  message: "Hellooooooooooo from Kubernetes ConfigMap!"
+  status: "super activeeeeeeeeeeeee"

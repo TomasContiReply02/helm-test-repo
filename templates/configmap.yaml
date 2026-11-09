@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  #the config map name will be based on the helm release name + --config
+  name: {{ .Release.Name }}-config
+data:
+  #the config map content will be into the file named risposta.yaml
+  risposta.yaml: |
+    message: "{{ .Values.config.message }}"
+    status: "{{ .Values.config.status }}"
